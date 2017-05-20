@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   nginx:
@@ -73,7 +73,7 @@ services:
   #     - LETSENCRYPT_HOST=sample.example.com
   #     - LETSENCRYPT_EMAIL=email@example.com
 
-networks:
-  proxy-tier:
-    external:
-      name: "nginx-proxy"
+# networks:
+#   proxy-tier:
+#     external:
+#       name: "nginx-proxy"
