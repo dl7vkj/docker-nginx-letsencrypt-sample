@@ -82,5 +82,5 @@ services:
 
 networks:
   proxy-tier:
-#     external:
-#       name: "nginx-proxy"
+    external:
+      name: "nginx-proxy"
