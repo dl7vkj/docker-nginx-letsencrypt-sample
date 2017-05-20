@@ -20,6 +20,9 @@ services:
       - ./volumes/proxy/certs:/etc/nginx/certs:ro
     networks:
       - proxy-tier
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 
   nginx-gen:
     restart: always
@@ -36,6 +39,9 @@ services:
       - ./volumes/proxy/certs:/etc/nginx/certs:ro
     networks:
       - proxy-tier
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     entrypoint: /usr/local/bin/docker-gen -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
 
   letsencrypt-nginx-proxy-companion:
@@ -53,6 +59,9 @@ services:
       - html-volume:/usr/share/nginx/html
     environment:
       - NGINX_DOCKER_GEN_CONTAINER=nginx-gen
+    deploy:
+      placement:
+        constraints: [node.role == manager]
 
   # sample-api:
   #   restart: always
