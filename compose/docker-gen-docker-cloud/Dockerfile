@@ -4,6 +4,7 @@ FROM jwilder/docker-gen
 RUN apk add --update \
     python \
     py-pip \
+    docker.io \
   && pip install virtualenv \
   && pip install docker-cloud \
   && rm -rf /var/cache/apk/*
